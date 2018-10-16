@@ -1,0 +1,23 @@
+#!/bin/sh
+function write_header {
+  echo "# Welcome to Unity Beginner's Wiki\n\n---\n" > README.md
+}
+function urlencode {
+  nkf -WwMQ | tr = %
+}
+function urldecode {
+  tr % = | nkf -WwmQ
+}
+
+write_header
+FILES=(`find wiki -type f | urlencode`)
+NAMES=(`find wiki -type f | sed -e "s#wiki/##g" | sed -e "s#.md##g"`)
+
+for (( i=0; i<${#NAMES[@]}; i++)) ; do
+  FILE_PATH=`echo ${FILES[$i]} | urldecode`
+  FILE_NAME=`echo ${NAMES[$i]}`
+  if [ "$FILE_NAME" != ".DS_Store" ] ; then
+    echo "* <a href='$FILE_PATH'>$FILE_NAME</a>" >> README.md
+  fi
+  echo "complete $FILE_NAME"
+done
