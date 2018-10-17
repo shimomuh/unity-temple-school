@@ -3,7 +3,7 @@ function write_header {
   echo "# Welcome to Unity Beginner's Wiki\n\n---\n" > README.md
 }
 function write_footer {
-  echo "\n※このファイルは自動生成です" > README.md
+  echo "\n※このファイルは自動生成です" >> README.md
 }
 function urlencode {
   nkf -WwMQLm | tr = %
@@ -12,18 +12,23 @@ function urldecode {
   tr % = | nkf -WwmQd
 }
 
-write_header
-FILES=(`find wiki -type f | urlencode`)
-NAMES=(`find wiki -type f | sed -e "s#wiki/##g" | sed -e "s#.md##g"`)
+function write_wikis {
+  FILES=(`find wiki -type f | urlencode`)
+  NAMES=(`find wiki -type f | sed -e "s#wiki/##g" | sed -e "s#.md##g"`)
 
-for (( i=0; i<${#NAMES[@]}; i++)) ; do
-  # NOTE: sed -e "s/#/%23/g" の理由
-  #       github 上でPATH表示時にURLエスケープされてしまうので
-  #
-  FILE_PATH=`echo ${FILES[$i]} | urldecode | sed -e "s/#/%23/g"`
-  FILE_NAME=`echo ${NAMES[$i]}`
-  if [ "$FILE_NAME" != ".DS_Store" ] ; then
-    echo "* <a href='$FILE_PATH'>$FILE_NAME</a>" >> README.md
-  fi
-  echo "[$(($i + 1))/${#NAMES[@]}] complete."
-done
+  for (( i=0; i<${#NAMES[@]}; i++)) ; do
+    # NOTE: sed -e "s/#/%23/g" の理由
+    #       github 上でPATH表示時にURLエスケープされてしまうので
+    #
+    FILE_PATH=`echo ${FILES[$i]} | urldecode | sed -e "s/#/%23/g"`
+    FILE_NAME=`echo ${NAMES[$i]}`
+    if [ "$FILE_NAME" != ".DS_Store" ] ; then
+      echo "* <a href='$FILE_PATH'>$FILE_NAME</a>" >> README.md
+    fi
+    echo "[$(($i + 1))/${#NAMES[@]}] complete."
+  done
+}
+
+write_header
+write_wikis
+write_footer
