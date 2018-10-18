@@ -5,23 +5,18 @@ function write_header {
 function write_footer {
   echo "\n※このファイルは自動生成です" >> README.md
 }
-function urlencode {
-  nkf -WwMQLm | tr = %
-}
-function urldecode {
-  tr % = | nkf -WwmQd
-}
 
 function write_wikis {
-  FILES=(`find wiki -type f | urlencode`)
+  FILES=(`find wiki -type f`)
   NAMES=(`find wiki -type f | sed -e "s#wiki/##g" | sed -e "s#.md##g"`)
 
   for (( i=0; i<${#NAMES[@]}; i++)) ; do
     # NOTE: sed -e "s/#/%23/g" の理由
     #       github 上でPATH表示時にURLエスケープされてしまうので
     #
-    FILE_PATH=`echo ${FILES[$i]} | urldecode | sed -e "s/#/%23/g"`
+    FILE_PATH=`echo ${FILES[$i]} | sed -e "s/#/%23/g"`
     FILE_NAME=`echo ${NAMES[$i]}`
+    echo "[Debug] ${FILES[$i]}"
     if [ "$FILE_NAME" != ".DS_Store" ] ; then
       echo "* <a href='$FILE_PATH'>$FILE_NAME</a>" >> README.md
     fi

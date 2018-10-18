@@ -4,11 +4,11 @@
 
 ## 範囲選択して Alt + Enter
 
-![](../images/rider/inplace-refactoring.png)
+![](../images/rider/show-intention-actions.png)
 
 ## 範囲選択してファイル右側
 
-![](../images/rider/show-intention-actions.png)
+![](../images/rider/inplace-refactoring.png)
 
 # 他ツール
 
