@@ -19,7 +19,7 @@ function write_wikis {
     if [ "$files" != "wiki/.DS_Store" ] ; then
       echo "* <a href='$file_path'>$title</a>" >> README.md
     fi
-    echo "[$(($i + 1))/${#fils[@]}] complete."
+    echo "[$(($i + 1))/${#file_paths[@]}] complete."
   done
 }
 
