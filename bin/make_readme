@@ -14,7 +14,7 @@ function write_wikis {
     # NOTE: sed -e "s/#/%23/g" の理由
     #       github 上でPATH表示時にURLエスケープされてしまうので
     #
-    FILE_PATH=`echo ${FILES[$i]} | sed -e "s/#/%23/g"`
+    FILE_PATH=`echo ${FILES[$i]}`
     FILE_NAME=`echo ${NAMES[$i]}`
     echo "[Debug] ${FILES[$i]}"
     if [ "$FILE_NAME" != ".DS_Store" ] ; then
