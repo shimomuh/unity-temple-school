@@ -1,18 +1,19 @@
-# 概略
+# Rider を使いこなしたい！
 
 ものすごくシンプルに言うと以下2つをしていれば Rider に必要な道具は揃っている
 
-## 範囲選択して Alt + Enter
+* 範囲選択して Alt + Enter
+* 囲選択してファイル右側
 
-![](../images/rider/show-intention-actions.png)
+具体的に画像でみると以下の通り。
 
-## 範囲選択してファイル右側
+|範囲選択して Alt + Enter|範囲選択してファイル右側|
+|---|---|
+|![](../images/rider/show-intention-actions.png)|![](../images/rider/inplace-refactoring.png)|
 
-![](../images/rider/inplace-refactoring.png)
+## 他ツール
 
-# 他ツール
-
-## IdeaVim
+### IdeaVim
 
 Vim バインディングを使える拡張機能
 

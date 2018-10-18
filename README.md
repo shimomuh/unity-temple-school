@@ -2,7 +2,7 @@
 
 ---
 
-* <a href='wiki/C%23のコードをシェル上でサクッとコンパイルして実行したい.md'>C#のコードをシェル上でサクッとコンパイルして実行したい</a>
-* <a href='wiki/Riderを使いこなす.md'>Riderを使いこなす</a>
+* <a href='wiki/c_sharp_file_compile_and_execute_on_shell.md'>サクッと手元のシェルで C# コードをコンパイル・実行して挙動を確認できるようにする</a>
+* <a href='wiki/rider_tutorial.md'>Rider を使いこなしたい！</a>
 
 ※このファイルは自動生成です

@@ -1,26 +1,25 @@
 #!/bin/sh
+
 function write_header {
   echo "# Welcome to Unity Beginner's Wiki\n\n---\n" > README.md
 }
 function write_footer {
   echo "\n※このファイルは自動生成です" >> README.md
 }
+function pick_up_title {
+  head -n1 $1 | cut -b3-
+}
 
 function write_wikis {
-  FILES=(`find wiki -type f`)
-  NAMES=(`find wiki -type f | sed -e "s#wiki/##g" | sed -e "s#.md##g"`)
+  file_paths=(`find wiki -type f`)
 
-  for (( i=0; i<${#NAMES[@]}; i++)) ; do
-    # NOTE: sed -e "s/#/%23/g" の理由
-    #       github 上でPATH表示時にURLエスケープされてしまうので
-    #
-    FILE_PATH=`echo ${FILES[$i]}`
-    FILE_NAME=`echo ${NAMES[$i]}`
-    echo "[Debug] ${FILES[$i]}"
-    if [ "$FILE_NAME" != ".DS_Store" ] ; then
-      echo "* <a href='$FILE_PATH'>$FILE_NAME</a>" >> README.md
+  for (( i=0; i<${#file_paths[@]}; i++)) ; do
+    file_path=`echo ${file_paths[$i]}`
+    title=`pick_up_title $file_path`
+    if [ "$files" != "wiki/.DS_Store" ] ; then
+      echo "* <a href='$file_path'>$title</a>" >> README.md
     fi
-    echo "[$(($i + 1))/${#NAMES[@]}] complete."
+    echo "[$(($i + 1))/${#fils[@]}] complete."
   done
 }
 
