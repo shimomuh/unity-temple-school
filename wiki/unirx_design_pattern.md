@@ -1,6 +1,4 @@
-# UniRx とは？
-
-## UniRx のデザインパターン
+# UniRx のデザインパターン
 
 UniRx は Observable パターンと呼ばれるデザインパターンを採用している
 
@@ -10,7 +8,7 @@ Observer （観察者）が Subject （通知オブジェクト側）を観察�
 
 [作りながら理解するUniRx](https://qiita.com/mattak/items/106dfd0974653aa06fbc) を書き換えながら理解を深める
 
-### 1. Pull 型 Observer パターン
+## 1. Pull 型 Observer パターン
 
 ```cs
 // 監視者 (寿司を食べる人)
@@ -81,7 +79,7 @@ chef.NotifyObservers();
 * 通知された人が通知した人 (Subject) にデータを参照しにいかなければならない
 * よって、密結合になり監視者側が監視対象を意識しなくてはならないので拡張性に欠ける
 
-### 2. Push 型 Observer パターン
+## 2. Push 型 Observer パターン
 
 Pull 型の欠点を解決したデザインパターン。
 
@@ -145,7 +143,7 @@ chef.NotifyObservers("サーモン");
 
 IObserverと ISubjectの依存（SushiObserver が Subject.MakedNeta を知らないといけないという密結合）を分離することができた
 
-### 3. OnNext, OnComplete, OnError
+## 3. OnNext, OnComplete, OnError
 
 ```cs
 // ちょっと一般化して、定義順を Subject → Observer に変えます
@@ -242,7 +240,7 @@ chef.Unsubscribe(customer2);
 
 * 監視をやめたい（Unsubscribe）だけなのに、ISubjectのclassを参照しなくてはならないのは拡張性にかける
 
-### 4. Disposable
+## 4. Disposable
 
 課題を解決するために C# には IDisposableというリソース開放のための interfaceが備わっているので、これを用いて購読停止をする
 
@@ -354,7 +352,7 @@ subject.NotifyNext("いか");
 // えんがわおいしいです (^q^)
 ```
 
-### 5. Observable
+## 5. Observable
 
 Dispose 実装時の以下の部分をみてください
 
@@ -434,7 +432,7 @@ ISubject は、IObserver（監視者）であり、IObservable（監視可能）
 
 Rx の文脈では、Subject のようにすぐに来たイベントを流してしまうような IObservable のことを Hot であると呼称している。
 
-### 6. Cold Observable
+## 6. Cold Observable
 
 実は先程までの寿司屋では釣ったばかりのネタをそのまま捌いて提供している（HotObservable）。
 
@@ -507,7 +505,7 @@ Rx の文脈では、このような Observable を Cold であるという。
 
 Hot Observableに対して、Cold Observableは即時実行でない点が特徴であり、Rxの非同期な利用を許す上で重要な概念になっている。
 
-### 7. Operator: Where
+## 7. Operator: Where
 
 ここから先、寿司屋から回転寿司に置き換えた方が説明しやすいので置き換えて説明する。
 
@@ -621,7 +619,7 @@ subject.OnComplete();
 
 他の Select / SelectMany について知りたければ [作りながら理解するUniRx](https://qiita.com/mattak/items/106dfd0974653aa06fbAc) を参考にしてもらうと良い。
 
-### 8. Unity での利用
+## 8. Unity での利用
 
 Rx の基本的な仕組みは上記で説明できた。
 
