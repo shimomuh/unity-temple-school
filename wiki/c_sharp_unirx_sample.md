@@ -259,11 +259,11 @@ public class UniRxSample : MonoBehaviour
 
 この Script は 空の GameObject に付与されているだけだが、 SerializeField を定義したことで Button が Unity Editor の Inspector に表示されている。
 
-![](../images/rx/unirx-add-serialize-field-button-1)
+![](../images/rx/unirx-add-serialize-field-button-1.png)
 
 そこで、新しく UI の Button を作成し、 **空の GameObject を選択した状態で** Button をドラッグ&ドロップすると、 Observable がハンドリングされる。
 
-![](../images/rx/unirx-add-serialize-field-button-2)
+![](../images/rx/unirx-add-serialize-field-button-2.png)
 
 この状態で実行すると、ボタンクリック時に Debug.Log が測れるようになる。
 
