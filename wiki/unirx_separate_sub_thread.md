@@ -101,3 +101,21 @@ ThreadId: 1
 ```
 
 ちなみにスレッド ID は順番とは限らない（これは僕が他のプロセスも動かしていたからかもしれないが）
+
+## おまけ
+
+### SomeFunction が Monobehaviour 依存だった場合
+
+まずは依存しないように切り出せないか、実装方法を工夫できないか考えましょう。
+
+世の中 Monobehaviour に頼らなくてもできることはいっぱいあります。
+
+### SomeFunction が UnityWebRequest に依存するものだった場合
+
+割とスレッドに切り出したい処理の代表格はネットワークレスポンス周りではないかと思います。
+
+そのときは以下を参考にしてみてください。
+
+結論だけ話すと、 UnityWebRequest （古くは WWW ）に関する処理部は Monobehaviour から切り出すのは不可避なので、諦めて Native Plugin を使いましょうという話です。
+
+https://developers.cyberagent.co.jp/blog/archives/6649/
