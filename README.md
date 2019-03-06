@@ -12,6 +12,7 @@
 * <a href='wiki/rx_explained_with_rxjs.md'>RxJS を用いた Rx の解説</a>
 * <a href='wiki/unirx_add_to.md'>IDisposable AddTo&lt;T&gt;(this T disposable) について</a>
 * <a href='wiki/unirx_design_pattern.md'>UniRx のデザインパターン</a>
+* <a href='wiki/unirx_execution_confirmation.md'>UniRx 動作確認リファレンス</a>
 * <a href='wiki/unirx_separate_sub_thread.md'>既存のメインスレッドで処理している内容をスレッドに分けて実行する</a>
 * <a href='wiki/unirx_unit.md'>IObservable.Return(Unit.Default) を紐解く</a>
 * <a href='wiki/unity_how_to_run.md'>Unity で一番最初に起動されるものは？</a>
