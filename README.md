@@ -8,6 +8,7 @@
 * <a href='wiki/c_sharp_generic.md'>Generic という仕組み</a>
 * <a href='wiki/c_sharp_static_variable_and_static_method.md'>static とは？</a>
 * <a href='wiki/c_sharp_unirx_sample.md'>UniRx の簡単なサンプルを実行して実装方法を知る</a>
+* <a href='wiki/c_sharp_yield_return.md'>yield return に関する挙動</a>
 * <a href='wiki/rider_tutorial.md'>Rider を使いこなしたい！</a>
 * <a href='wiki/rx_explained_with_rxjs.md'>RxJS を用いた Rx の解説</a>
 * <a href='wiki/unirx_add_to.md'>IDisposable AddTo&lt;T&gt;(this T disposable) について</a>
